@@ -4,13 +4,12 @@ const bodyParser = require("body-parser");
 const logger = require("morgan");
 const Data = require ("./data");
 
-const API_Port = 3001;
+const API_PORT = 3001;
 const app = express();
 const router = express.Router();
 
 // mongoDB database 
 const dbRoute = "mongodb://Superunknown1103:Bruce1103@ds213183.mlab.com:13183/fashion-app";
-// mongodb://jelo:a9bc839993@ds151382.mlab.com:51382/jelotest
 
 mongoose.connect(
     dbRoute,
@@ -20,10 +19,10 @@ mongoose.connect(
 let db = mongoose.connection;
 
 // successful mongo connection
-db.once("open", console.error.bind(console, "MongoDB connection error:"));
+db.once("open", console.error.bind(console, "MongoDB connected, baby."));
 
 // error connecting to db
-db.on("error", console.error.bind(console, "MongoDB connection error:");
+db.on("error", console.error.bind(console, "Mongo no work, here's why:"));
 
 // logging
 app.use(bodyParser.urlencoded({ extended: false }));
